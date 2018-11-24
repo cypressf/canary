@@ -4,3 +4,4 @@ version = "0.1.0"
 authors = ["Anders Jensen <anders.c.jensen@gmail.com>"]
 
 [dependencies]
+actix-web = "0.7"

@@ -9,7 +9,7 @@ fn index(_req: &HttpRequest) -> &'static str {
 
 fn main() {
     server::new(|| App::new().resource("/", |r| r.f(index)))
-      .bind("127.0.0.1:8088")
+      .bind("0.0.0.0:8088")
       .unwrap()
       .run();
 }

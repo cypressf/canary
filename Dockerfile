@@ -1,5 +1,5 @@
 # select build image
-FROM rust:1.30 as build
+FROM rust:1.30.1 as build
 
 # create a new empty shell project
 RUN USER=root cargo new --bin canary
@@ -23,7 +23,7 @@ RUN cargo clean
 RUN cargo build --release
 
 # our final base
-FROM rust:1.30
+FROM rust:1.30.1-slim
 
 # copy the build artifact from the build stage
 COPY --from=build /canary/target/release/canary .

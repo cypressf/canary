@@ -27,4 +27,4 @@ FROM rust:1.30.1-slim@sha256:afcd63315f6734b6c407e7d60c7e1bcbe44e2db7d409c13958b
 # copy the build artifact from the build stage
 COPY --from=build /canary/target/release/canary .
 
-CMD ["./canary"]
+ENTRYPOINT ["./canary"]

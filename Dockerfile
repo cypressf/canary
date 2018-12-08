@@ -6,7 +6,7 @@ RUN USER=root cargo new --bin canary
 WORKDIR /canary
 
 # copy over your manifests
-COPY ./.Cargo.lock ./.Cargo.lock
+COPY ./Cargo.lock ./Cargo.lock
 COPY ./Cargo.toml ./Cargo.toml
 
 # this build step will cache your dependencies

@@ -6,7 +6,7 @@ Buildt in Rust with the Actix web framework.
 
 https://hub.docker.com/r/acje/canary/
 
-Rust-image/Debian-stretch-slim based docker image (964MB + 10MB App).
+16MB Alpine image on docker hub.
 Run:
 
 docker run -p 8088:8088/tcp acje/canary

@@ -5,4 +5,4 @@ authors = ["Anders Jensen <anders.c.jensen@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-actix-web = "0.7.15"
+actix-web = "0.7"

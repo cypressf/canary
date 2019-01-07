@@ -16,5 +16,3 @@ docker run -p 8088:8088/tcp acje/canary
 Response at
 
 http://localhost:8088/  "Canary is alive" (happy path)
-
-test

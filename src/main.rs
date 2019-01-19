@@ -15,7 +15,6 @@ fn get_server_port() -> u16 {
 
 fn main() {
     use std::net::{SocketAddr};
- //   let sys = actix::System::new("updater");
     let addr = SocketAddr::from(([0, 0, 0, 0], get_server_port()));
 println!("Starting server.");
 

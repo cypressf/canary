@@ -14,13 +14,12 @@ fn get_server_port() -> u16 {
 }
 
 fn main() {
-    use std::net::{SocketAddr};
+    use std::net::SocketAddr;
     let addr = SocketAddr::from(([0, 0, 0, 0], get_server_port()));
-println!("Starting server.");
+    println!("Starting server.");
 
-      server::new(|| App::new().resource("/", |r| r.f(index)))
+    server::new(|| App::new().resource("/", |r| r.f(index)))
         .bind(addr)
         .expect("Can not bind to port X")
         .run();
-
 }

@@ -6,7 +6,7 @@ Buildt in Rust with the Actix-web framework.
 
 https://hub.docker.com/r/acje/canary/
 
-16MB Alpine image on docker hub. using
+13MB Alpine image on docker hub. Using
 https://github.com/emk/rust-musl-builder
 
 Run:

@@ -2,8 +2,8 @@ use actix_web::{server, App, HttpRequest};
 use std::env;
 
 fn index(_req: &HttpRequest) -> &'static str {
+    println!("Canary is chirping");
     "Canary is alive"
-    println!("Canary is chirping")
 }
 
 // Get the port number to listen on or fail fast.

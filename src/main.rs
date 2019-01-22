@@ -3,6 +3,7 @@ use std::env;
 
 fn index(_req: &HttpRequest) -> &'static str {
     "Canary is alive"
+    println!("Canary is chirping")
 }
 
 // Get the port number to listen on or fail fast.

@@ -5,21 +5,21 @@ fn index(_req: &HttpRequest) -> &'static str {
     "Canary is alive"
 }
 
-/// utility function from the heroku buildpack example project
+// Get the port number to listen on or fail fast.
 fn get_server_port() -> u16 {
     env::var("PORT")
         .ok()
         .and_then(|p| p.parse().ok())
-        .unwrap_or(8080)
+        .expect("ENV VAR PORT must be a number")
 }
 
 fn main() {
     use std::net::SocketAddr;
     let addr = SocketAddr::from(([0, 0, 0, 0], get_server_port()));
-    println!("Starting server.");
+    println!("Starting server");
 
     server::new(|| App::new().resource("/", |r| r.f(index)))
         .bind(addr)
-        .expect("Can not bind to port X")
+        .expect("Can not bind to PORT")
         .run();
 }

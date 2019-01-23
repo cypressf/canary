@@ -1,5 +1,6 @@
+# Dockerfile to speed up builds
 # select build image
-FROM rust:1.31 AS build
+FROM rust:1.32 AS build
 
 # create a new empty shell project
 RUN USER=root cargo new --bin canary
@@ -28,4 +29,3 @@ FROM rust:1.31-slim
 COPY --from=build /canary/target/release/canary .
 
 ENTRYPOINT ["./canary"]
-© 2018 GitHub, Inc.

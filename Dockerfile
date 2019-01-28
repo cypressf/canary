@@ -18,4 +18,7 @@ COPY --from=builder /home/rust/src/target/x86_64-unknown-linux-musl/release/cana
 ENV PORT 8080
 EXPOSE $PORT
 
+# Configure log level
+ENV RUST_LOG=debug
+
 ENTRYPOINT ["./canary"]

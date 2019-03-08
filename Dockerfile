@@ -1,7 +1,8 @@
 FROM ekidd/rust-musl-builder AS builder
 
 # Add source code.
-ADD . ./
+ADD Cargo.* ./
+ADD src/ ./src
 
 # Fix permissions on source code.
 RUN sudo chown -R rust:rust /home/rust
@@ -10,7 +11,7 @@ RUN sudo chown -R rust:rust /home/rust
 RUN cargo build --release
 
 # Build final container
-FROM alpine:latest
+FROM scratch
 
 COPY --from=builder /home/rust/src/target/x86_64-unknown-linux-musl/release/canary .
 
@@ -20,6 +21,5 @@ EXPOSE $PORT
 
 # Configure log level
 ENV RUST_LOG=info
-# debug
 
 ENTRYPOINT ["./canary"]

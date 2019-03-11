@@ -4,6 +4,7 @@ use std::env;
 
 fn index(_req: &HttpRequest) -> &'static str {
     log::info!("Canary is chirping");
+    //    println!("{:?}", _req);
     "Canary is alive"
 }
 
@@ -16,12 +17,19 @@ fn get_server_port() -> u16 {
 }
 
 fn main() {
+    if ::std::env::var("RUST_LOG").is_err() {
+        ::std::env::set_var("RUST_LOG", "actix_web=info");
+        log::info!("Setting default log level info");
+    }
+
     env_logger::init();
+
     use std::net::SocketAddr;
     let addr = SocketAddr::from(([0, 0, 0, 0], get_server_port()));
-
+    log::info!("Starting server");
     server::new(|| App::new().resource("/", |r| r.f(index)))
         .bind(addr)
         .expect("Can not bind to PORT")
         .run();
+    log::info!("Server started");
 }

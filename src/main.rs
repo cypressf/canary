@@ -31,5 +31,4 @@ fn main() {
         .bind(addr)
         .expect("Can not bind to PORT")
         .run();
-    log::info!("Server started");
 }

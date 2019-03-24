@@ -6,12 +6,12 @@ Buildt in Rust with the Actix-web framework.
 
 https://hub.docker.com/r/acje/canary/
 
-13MB Alpine image on docker hub. Using
+>10MB image on docker hub. Buildt as static binary with musl in docker container from scratch.
 https://github.com/emk/rust-musl-builder
 
 Run:
 
-docker run -p 8080:8080/tcp acje/canary
+docker run -p 8080:8080/tcp acje/canary:latest
 
 Response at
 

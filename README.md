@@ -6,7 +6,7 @@ Buildt in Rust with the Actix-web framework.
 
 https://hub.docker.com/r/acje/canary/
 
->10MB image on docker hub. Buildt as static binary with musl in docker container from scratch.
+Less than 10MB image on docker hub. Buildt as static binary with musl in docker container from scratch.
 https://github.com/emk/rust-musl-builder
 
 Run:

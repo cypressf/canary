@@ -20,6 +20,6 @@ ENV PORT 8080
 EXPOSE $PORT
 
 # Configure log level
-ENV RUST_LOG=info
+# ENV RUST_LOG=info
 
 ENTRYPOINT ["./canary"]

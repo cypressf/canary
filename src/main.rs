@@ -18,8 +18,8 @@ fn get_server_port() -> u16 {
 
 fn main() {
     if ::std::env::var("RUST_LOG").is_err() {
-        ::std::env::set_var("RUST_LOG", "actix_web=info");
-        log::info!("Setting default log level info");
+        ::std::env::set_var("RUST_LOG=info", "actix_web=info");
+        log::info!("Setting default log level 'ENV RUST_LOG=info'");
     }
 
     env_logger::init();

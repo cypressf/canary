@@ -9,6 +9,7 @@ RUN sudo chown -R rust:rust /home/rust
 
 # Build application.
 RUN cargo build --release
+RUN strip /home/rust/src/target/x86_64-unknown-linux-musl/release/canary
 
 # Build final container
 FROM scratch
@@ -20,6 +21,6 @@ ENV PORT 8080
 EXPOSE $PORT
 
 # Configure log level
-# ENV RUST_LOG=info
+ENV RUST_LOG=info
 
 ENTRYPOINT ["./canary"]

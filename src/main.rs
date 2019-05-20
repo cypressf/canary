@@ -4,7 +4,6 @@ use std::env;
 
 fn index(_req: &HttpRequest) -> &'static str {
     log::info!("Canary is chirping");
-    //    println!("{:?}", _req);
     "Canary is alive"
 }
 

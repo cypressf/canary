@@ -8,3 +8,9 @@ edition = "2018"
 actix-web = "1.0.0"
 log = "0.4"
 env_logger = "0.6"
+
+[profile.release]
+panic = "abort"
+lto = true
+codegen-units = 1
+incremental = false

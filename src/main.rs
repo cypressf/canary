@@ -1,3 +1,4 @@
+//size optimizatin: https://jamesmunns.com/blog/tinyrocket/#tldr
 //use actix_web::{server, App, HttpRequest};
 use actix_web::{web, App, HttpServer, Responder};
 use log;

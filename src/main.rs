@@ -24,10 +24,10 @@ fn get_server_port() -> u16 {
 
 fn main() -> std::io::Result<()> {
     env_logger::init();
+    log::info!("Canary hatching");
     use std::net::SocketAddr;
     let addr = SocketAddr::from(([0, 0, 0, 0], get_server_port()));
-    log::info!("Starting server");
-
+   
     HttpServer::new(|| {
         App::new()
             //    .service(web::resource("/{name}/{id}/index.html").to(index))

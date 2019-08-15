@@ -1,4 +1,4 @@
-# canary
+# Canary
 
 Canary is not "Hello world".
 

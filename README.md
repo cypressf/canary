@@ -13,6 +13,6 @@ Run:
 
 docker run -p 8080:8080/tcp acje/canary:latest
 
-Response at
-
-http://localhost:8080/  "Canary is alive" (happy path)
+Response at http://localhost:8080/ 
+"Canary is alive!"
+(happy path)

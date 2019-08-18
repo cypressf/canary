@@ -1,4 +1,4 @@
-# canary
+# Canary
 
 Canary is not "Hello world".
 
@@ -13,6 +13,8 @@ Run:
 
 docker run -p 8080:8080/tcp acje/canary:latest
 
-Response at
+Response at http://localhost:8080/ 
 
-http://localhost:8080/  "Canary is alive" (happy path)
+"Canary is alive!"
+
+(happy path)

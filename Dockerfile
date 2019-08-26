@@ -7,6 +7,7 @@ ADD src/ ./src
 # Fix permissions on source code
 RUN sudo chown -R rust:rust /home/rust
 
+<<<<<<< HEAD
 # Build PGO instrumented application
 # RUN RUSTFLAGS="-Cprofile-generate=/tmp/pgo-data" cargo build --release
 RUN cargo build --release
@@ -18,6 +19,10 @@ RUN cargo build --release
 
 # Build application from PGO
 # RUN RUSTFLAGS="-Cprofile-use=/tmp/pgo-data/merged.profdata" cargo build --release
+=======
+# Build application
+RUN cargo build --release
+>>>>>>> dab9c0395e8889a30f9f261e1496319d5fc49b70
 RUN strip /home/rust/src/target/x86_64-unknown-linux-musl/release/canary
 
 # Build final container

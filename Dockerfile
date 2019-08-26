@@ -7,17 +7,13 @@ ADD src/ ./src
 # Fix permissions on source code
 RUN sudo chown -R rust:rust /home/rust
 
-# update rust needed until 1.37 is in upstream image
-# RUN sudo rustup update
-# RUN rustup show
-
 # Build PGO instrumented application
 # RUN RUSTFLAGS="-Cprofile-generate=/tmp/pgo-data" cargo build --release
 RUN cargo build --release
 
 # Generate profile
-RUN timeout 10 --signal=SIGINT PORT=8080 /home/rust/src/target/x86_64-unknown-linux-musl/release/canary &
-RUN timeout 2 bash -c -- 'while true; do curl localhost:8080;done'
+# RUN timeout 10 --signal=SIGINT PORT=8080 /home/rust/src/target/x86_64-unknown-linux-musl/release/canary & 
+# RUN (parallell?) timeout 2 bash -c -- 'while true; do curl localhost:8080;done'
 # RUN llvm-profdata merge -o /tmp/pgo-data/merged.profdata /tmp/pgo-data
 
 # Build application from PGO

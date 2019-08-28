@@ -1,34 +1,39 @@
-FROM ekidd/rust-musl-builder AS builder
+# Based on: https://shaneutt.com/blog/rust-fast-small-docker-image-builds/
+# ------------------------------------------------------------------------------
+# Cargo Build Stage
+# ------------------------------------------------------------------------------
 
-# Add source code
-ADD Cargo.* ./
-ADD src/ ./src
+FROM rust:latest as cargo-build
 
-# Fix permissions on source code
-RUN sudo chown -R rust:rust /home/rust
+RUN apt-get update
 
-<<<<<<< HEAD
-# Build PGO instrumented application
-# RUN RUSTFLAGS="-Cprofile-generate=/tmp/pgo-data" cargo build --release
-RUN cargo build --release
+RUN apt-get install musl-tools -y
 
-# Generate profile
-# RUN timeout 10 --signal=SIGINT PORT=8080 /home/rust/src/target/x86_64-unknown-linux-musl/release/canary & 
-# RUN (parallell?) timeout 2 bash -c -- 'while true; do curl localhost:8080;done'
-# RUN llvm-profdata merge -o /tmp/pgo-data/merged.profdata /tmp/pgo-data
+RUN rustup target add x86_64-unknown-linux-musl
 
-# Build application from PGO
-# RUN RUSTFLAGS="-Cprofile-use=/tmp/pgo-data/merged.profdata" cargo build --release
-=======
-# Build application
-RUN cargo build --release
->>>>>>> dab9c0395e8889a30f9f261e1496319d5fc49b70
-RUN strip /home/rust/src/target/x86_64-unknown-linux-musl/release/canary
+WORKDIR /usr/src/canary
 
-# Build final container
+COPY Cargo.toml Cargo.toml
+
+RUN mkdir src/
+
+RUN echo "fn main() {println!(\"if you see this, the build broke\")}" > src/main.rs
+
+RUN RUSTFLAGS=-Clinker=musl-gcc cargo build --release --target=x86_64-unknown-linux-musl
+
+RUN rm -f target/x86_64-unknown-linux-musl/release/deps/canary*
+
+COPY . .
+
+RUN RUSTFLAGS=-Clinker=musl-gcc cargo build --release --target=x86_64-unknown-linux-musl
+RUN strip /usr/src/canary/target/x86_64-unknown-linux-musl/release/canary
+
+# ------------------------------------------------------------------------------
+# Final Stage
+# ------------------------------------------------------------------------------
+
 FROM scratch
-
-COPY --from=builder /home/rust/src/target/x86_64-unknown-linux-musl/release/canary .
+COPY --from=cargo-build /usr/src/canary/target/x86_64-unknown-linux-musl/release/canary /usr/local/bin/canary
 
 # Configure and document the service HTTP port
 ENV PORT 8080

@@ -33,7 +33,7 @@ RUN strip /usr/src/canary/target/x86_64-unknown-linux-musl/release/canary
 # ------------------------------------------------------------------------------
 
 FROM scratch
-COPY --from=cargo-build /usr/src/canary/target/x86_64-unknown-linux-musl/release/canary /usr/local/bin/canary
+COPY --from=cargo-build /usr/src/canary/target/x86_64-unknown-linux-musl/release/canary .
 
 # Configure and document the service HTTP port
 ENV PORT 8080

@@ -24,3 +24,5 @@ References for Dockerfile:
 https://shaneutt.com/blog/rust-fast-small-docker-image-builds
 
 https://medium.com/@lizrice/non-privileged-containers-based-on-the-scratch-image-a80105d6d341
+
+https://doc.rust-lang.org/rustc/profile-guided-optimization.html

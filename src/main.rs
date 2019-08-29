@@ -12,7 +12,7 @@ fn get_server_port() -> u16 {
     env::var("PORT")
         .ok()
         .and_then(|p| p.parse().ok())
-        .expect("ENV VAR PORT must be a number")
+        .expect("Environment variable PORT must be a number in non-privileged range 1024-65535")
 }
 
 fn main() -> std::io::Result<()> {

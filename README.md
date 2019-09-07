@@ -2,12 +2,11 @@
 
 Canary is not "Hello world".
 
-Buildt in Rust with the Actix-web framework.
+Buildt in Rust with the Actix-web 1.0 framework.
 
 https://hub.docker.com/r/acje/canary/
 
-Less than 10MB image on docker hub. Buildt as static binary with musl in docker container from scratch.
-https://github.com/emk/rust-musl-builder
+Tiny image on docker hub. Buildt as static binary with musl in docker container "scratch".
 
 Run:
 
@@ -17,7 +16,6 @@ Response at http://localhost:8080/
 
 "Canary is alive!"
 
-(happy path)
 
 References for Dockerfile:
 

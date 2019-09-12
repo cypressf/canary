@@ -1,5 +1,7 @@
 # Canary
 
+![Docker Pulls](https://img.shields.io/docker/pulls/acje/canary)
+
 Canary is not "Hello world".
 
 Buildt in Rust with the Actix-web 1.0 framework.

@@ -26,7 +26,7 @@ COPY --from=cargo-build /etc/passwd /etc/passwd
 USER canaryuser
 
 # Configure and document the service HTTP port
-ENV PORT 8080
+# ENV PORT 8080
 EXPOSE $PORT
 
 ENV RUST_LOG=info

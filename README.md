@@ -9,6 +9,7 @@ Buildt in Rust with the Actix-web 2.0 framework and musl in a "from scratch" doc
 https://hub.docker.com/r/acje/canary/
 
 Run:
+
 docker run -e "PORT=8080" -p 8080:8080 acje/canary:latest
 
 Response at http://localhost:8080/ 

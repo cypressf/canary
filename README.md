@@ -2,21 +2,17 @@
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/acje/canary)
 
-Canary is not "Hello world".
+Canary has only one feature. It replies "Canary is allive!".
 
-Buildt in Rust with the Actix-web 1.0 framework.
+Buildt in Rust with the Actix-web 2.0 framework and musl in a "from scratch" docker image. The container is compatible with Google cloud run.
 
 https://hub.docker.com/r/acje/canary/
 
-Tiny image on docker hub. Buildt as static binary with musl in docker container "scratch".
-
 Run:
 
-docker run -p 8080:8080/tcp acje/canary:latest
+docker run -p 8080:8080 acje/canary:latest
 
 Response at http://localhost:8080/ 
-
-"Canary is alive!"
 
 
 References for Dockerfile:

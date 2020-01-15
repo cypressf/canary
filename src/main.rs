@@ -1,4 +1,3 @@
-//use actix_web::{get, middleware, web, App, HttpServer, HttpResponse, HttpRequest};
 use actix_web::{get, middleware, App, HttpServer};
 use log;
 use std::env;
@@ -13,7 +12,7 @@ fn get_server_port() -> u16 {
     env::var("PORT")
         .ok()
         .and_then(|p| p.parse().ok())
-        .expect("Environment variable PORT must be a number in non-privileged range 1024-65535")
+        .expect("Aborting: Failed to read environment variable PORT")
 }
 
 #[actix_rt::main]

@@ -2,7 +2,7 @@
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/acje/canary)
 
-Canary has only one feature. It replies "Canary is allive!".
+Canary has only one feature. It replies "Canary is alive!".
 
 Buildt in Rust with the Actix-web 2.0 framework and musl in a "from scratch" docker image. The container is compatible with Google cloud run.
 

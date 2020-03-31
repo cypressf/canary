@@ -17,6 +17,6 @@ steps:
       - 'us-east1'
       - '--platform'
       - 'managed'
-    images:
+    - images:
     - 'gcr.io/$PROJECT_ID/canary-app-acje:$COMMIT_SHA'
    

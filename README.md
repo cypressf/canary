@@ -26,3 +26,5 @@ References for Dockerfile:
 <https://doc.rust-lang.org/rustc/profile-guided-optimization.html>
 
 <https://benjamincongdon.me/blog/2019/12/04/Fast-Rust-Docker-Builds-with-cargo-vendor/>
+
+cloudbuild test 1

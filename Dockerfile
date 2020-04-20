@@ -1,9 +1,22 @@
 # Modify standard Rust image
-FROM rust:latest as cargo-build
-RUN apt-get update
-RUN apt-get install musl-tools -y
-RUN rustup target add x86_64-unknown-linux-musl
-RUN useradd -u 10001 canaryuser
+FROM rust:1.42-alpine as cargo-build
+#RUN apt-get update
+#RUN apt-get install musl-tools -y
+#RUN rustup target add x86_64-unknown-linux-musl
+# RUN useradd -u 10001 canaryuser
+
+ENV USER=docker
+ENV UID=12345
+ENV GID=23456
+
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+ #   --home "$(pwd)" \
+    --ingroup "$USER" \
+    --no-create-home \
+    --uid "$UID" \
+    "$USER"
 
 # Cache dependencies
 WORKDIR /usr/src/canary

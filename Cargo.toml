@@ -10,9 +10,8 @@ actix-web = "2.0"
 log = "0.4"
 env_logger = "0.7"
 
-# [profile.release]
-# panic = "abort"
-# lto = true
-# removed parameters to reduce build time
-# codegen-units = 1
-# incremental = false
+[profile.release]
+panic = "abort"
+lto = true
+codegen-units = 1
+incremental = false

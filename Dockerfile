@@ -30,7 +30,7 @@ RUN rm -f target/x86_64-unknown-linux-musl/release/deps/canary*
 # Final Rust build stage. Docker caches up to this stage if dependencies are unchanged.
 COPY . .
 RUN RUSTFLAGS=-Clinker=musl-gcc cargo build --release --target=x86_64-unknown-linux-musl
-# RUN strip /usr/src/canary/target/x86_64-unknown-linux-musl/release/canary
+RUN strip /usr/src/canary/target/x86_64-unknown-linux-musl/release/canary
 
 # Final Docker build Stage
 FROM scratch

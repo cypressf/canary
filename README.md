@@ -4,7 +4,7 @@
 
 Canary has only one feature. It replies "Canary is alive!".
 
-Buildt in Rust with the Actix-web 2.0 framework and musl in a "from scratch" docker image. The container is compatible with Google cloud run.
+Buildt in Rust with the Actix-web 3 framework on distroless image.
 
 <https://hub.docker.com/r/acje/canary/>
 
@@ -16,15 +16,3 @@ Response at <http://localhost:8080/>
 
 On cloud run:
 <https://canary-app-acje-qvw63kdulq-ue.a.run.app/>
-
-References for Dockerfile:
-
-<https://shaneutt.com/blog/rust-fast-small-docker-image-builds>
-
-<https://medium.com/@lizrice/non-privileged-containers-based-on-the-scratch-image-a80105d6d341>
-
-<https://doc.rust-lang.org/rustc/profile-guided-optimization.html>
-
-<https://benjamincongdon.me/blog/2019/12/04/Fast-Rust-Docker-Builds-with-cargo-vendor/>
-
-<https://github.com/johnthagen/min-sized-rust>

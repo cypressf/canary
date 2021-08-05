@@ -1,10 +1,10 @@
 [package]
 name = "canary"
-version = "0.38.0"
+version = "0.39.0"
 authors = ["Anders Jensen <anders.c.jensen@gmail.com>"]
 edition = "2018"
 
 [dependencies]
 actix-web = "3"
 log = "0.4"
-env_logger = "0.8"
+env_logger = "0.9"

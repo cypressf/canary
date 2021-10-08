@@ -20,7 +20,7 @@ async fn main() -> std::io::Result<()> {
 }
 
 async fn chirp() -> &'static str {
-    "Canary 0.39.0 is alive!\r\n"
+    "Canary 0.40.0 is alive!\r\n"
 }
 
 // Get the port number to listen on or fail fast.

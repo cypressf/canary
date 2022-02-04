@@ -30,4 +30,4 @@ COPY --from=build /etc/passwd /etc/passwd
 USER canaryuser
 
 ENV RUST_LOG=info
-ENTRYPOINT ["ls && ./canary"]
+ENTRYPOINT ["./canary"]

@@ -17,9 +17,10 @@ RUN cargo build --release
 
 FROM gcr.io/distroless/cc
 COPY --from=build /usr/src/canary/target/release/canary .
+COPY --from=build /usr/src/canary/target/release/test .
 COPY --from=build /etc/passwd /etc/passwd
 COPY script .
 USER canaryuser
 
 ENV RUST_LOG=info
-ENTRYPOINT ["./script"]
+ENTRYPOINT ["./test && ./canary"]
